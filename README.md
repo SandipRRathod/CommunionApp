@@ -26,7 +26,6 @@ Building a simple three-page AngularJS web app with the following pages:
 
 ### Page 1: Home Page (Landing Page)
 
-- **Welcome Message** about the Communion App.
 - **Brief Description** (e.g., "Connecting people of all faiths through events and community support").
 - **Header** with an App Name & navigation links (Home, Events, About).
 - **Hero Section:**
