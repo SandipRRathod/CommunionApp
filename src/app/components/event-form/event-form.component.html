@@ -1,0 +1,16 @@
+<form (ngSubmit)="submitEvent()" class="bg-info p-3 rounded-3" data-aos="fade-up" data-aos-duration="1000">
+    <input class="form-control mb-2" [(ngModel)]="newEvent.title" name="title" placeholder="Event Title" required>
+    <input class="form-control mb-2" type="date" [(ngModel)]="newEvent.date" name="date" required>
+    <input class="form-control mb-2" [(ngModel)]="newEvent.location" name="location" placeholder="Location" required>
+  
+    <select class="form-select mb-3" [(ngModel)]="newEvent.category" name="category" required>
+      <option value="" disabled selected>Select Category</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+    <textarea class="form-control mb-2" [(ngModel)]="newEvent.description" name="description" placeholder="Description..."></textarea>
+  
+    <button class="btn btn-success d-block mx-auto">Add Event</button>
+
+  </form>
+  

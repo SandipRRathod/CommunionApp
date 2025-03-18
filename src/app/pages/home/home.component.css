@@ -1,0 +1,21 @@
+.typing {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2s both;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 38%; }
+  }
+  
+  @media screen and (min-width:200px) and (max-width:980px){
+
+    .typing {
+      overflow: none !important;
+      width: auto !important; /* Let it take natural width */
+      white-space: normal; /* Allow text to wrap */
+      animation: none !important; /* Disable animation */
+    }
+  }

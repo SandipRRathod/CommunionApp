@@ -1,0 +1,44 @@
+<div class="container mt-4 p-3">
+    <h2 class="text-white" data-aos="fade-up" data-aos-duration="1000">Upcoming Events</h2>
+    
+    <select class="form-select my-3 bg-info" [(ngModel)]="selectedCategory" data-aos="fade-up" data-aos-duration="1000">
+      <option value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  
+    <div class="card mb-3" *ngFor="let event of filteredEvents()" data-aos="fade-up" data-aos-duration="1000" (click)="openEvent(event)" data-bs-toggle="modal" data-bs-target="#eventModal">
+      <div class="card-body" data-aos="fade-up" data-aos-duration="900">
+        <h5 class="card-title">{{ event.title }}</h5>
+        <p class="card-text">{{ event.date }} - {{ event.location }}</p>
+        <p class="badge bg-info">{{ event.category }}</p>
+      </div>
+    </div>
+    
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ selectedEvent?.title }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Date:</strong> {{ selectedEvent?.date }}</p>
+            <p><strong>Location:</strong> {{ selectedEvent?.location }}</p>
+            <p><strong>Category:</strong> {{ selectedEvent?.category }}</p>
+            <p><strong>Description:</strong> {{ selectedEvent?.description }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-danger text-white" data-bs-dismiss="modal" (click)="removeEvent(selectedEvent)">Delete</button>
+          </div>
+        </div>
+        
+      </div>
+     
+    </div>
+    
+  
+    <h2 class="mt-4 text-white">Add New Event</h2>
+    <app-event-form (eventAdded)="onEventAdded($event)"></app-event-form>
+  </div>
+  
